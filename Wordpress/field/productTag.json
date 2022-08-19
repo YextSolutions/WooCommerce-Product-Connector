@@ -1,0 +1,19 @@
+{
+  "$id": "c_productTag",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "Use this field to add tags that are related to products",
+  "displayName": "Product Tag",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "listType": {
+      "typeId": "string",
+      "type": {
+        "stringType": {
+          "stereotype": "SIMPLE"
+        }
+      }
+    }
+  },
+  "typeId": "list"
+}
