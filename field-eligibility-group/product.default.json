@@ -1,0 +1,17 @@
+{
+  "$id": "product.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Product-default",
+  "entityType": "product",
+  "fields": [
+    "wc_averageRating",
+    "wc_featured",
+    "wc_productCategory",
+    "wc_ratingCount",
+    "wc_regularPrice",
+    "wc_relatedProduct",
+    "wc_richTextShortDescription",
+    "wc_saleStatus"
+  ],
+  "required": []
+}

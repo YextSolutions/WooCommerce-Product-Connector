@@ -1,0 +1,438 @@
+{
+  "$id": "wooCommerceProductConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "WooCommerce Product Connector",
+  "entityType": "product",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://danafesjian.wpcomstaging.com/wp-json/wc/v3/products",
+        "authentication": {
+          "basicAuthentication": {
+            "username": "${{km/connector.wooCommerceProductConnector.api_username}}",
+            "password": "${{km/connector.wooCommerceProductConnector.api_password}}"
+          }
+        },
+        "paginationControl": {
+          "cursorPagination": {
+            "cursor": "link",
+            "cursorType": "FULL_URL",
+            "detectCursorInHeader": true
+          }
+        },
+        "headers": {},
+        "queryParams": {},
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "[*]"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "id",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "name",
+        "path": "name"
+      },
+      {
+        "type": "JSON",
+        "header": "date_created",
+        "path": "date_created"
+      },
+      {
+        "type": "JSON",
+        "header": "permalink",
+        "path": "permalink"
+      },
+      {
+        "type": "JSON",
+        "header": "featured",
+        "path": "featured"
+      },
+      {
+        "type": "JSON",
+        "header": "description",
+        "path": "description"
+      },
+      {
+        "type": "JSON",
+        "header": "short_description",
+        "path": "short_description"
+      },
+      {
+        "type": "JSON",
+        "header": "sku",
+        "path": "sku"
+      },
+      {
+        "type": "JSON",
+        "header": "price",
+        "path": "price"
+      },
+      {
+        "type": "JSON",
+        "header": "regular_price",
+        "path": "regular_price"
+      },
+      {
+        "type": "JSON",
+        "header": "sale_price",
+        "path": "sale_price"
+      },
+      {
+        "type": "JSON",
+        "header": "date_on_sale_from",
+        "path": "date_on_sale_from"
+      },
+      {
+        "type": "JSON",
+        "header": "date_on_sale_to",
+        "path": "date_on_sale_to"
+      },
+      {
+        "type": "JSON",
+        "header": "on_sale",
+        "path": "on_sale"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.length",
+        "path": "dimensions.length"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.width",
+        "path": "dimensions.width"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.height",
+        "path": "dimensions.height"
+      },
+      {
+        "type": "JSON",
+        "header": "average_rating",
+        "path": "average_rating"
+      },
+      {
+        "type": "JSON",
+        "header": "rating_count",
+        "path": "rating_count"
+      },
+      {
+        "type": "JSON",
+        "header": "parent_id",
+        "path": "parent_id"
+      },
+      {
+        "type": "JSON",
+        "header": "categories[].name",
+        "path": "categories[].name"
+      },
+      {
+        "type": "JSON",
+        "header": "tags[].name",
+        "path": "tags[].name"
+      },
+      {
+        "type": "JSON",
+        "header": "images",
+        "path": "images"
+      },
+      {
+        "type": "JSON",
+        "header": "related_ids",
+        "path": "related_ids"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "date_created",
+            "date_on_sale_from",
+            "date_on_sale_to"
+          ]
+        },
+        "plugin": "idTransform",
+        "function": "formatDate"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "currency_price",
+        "columnValue": "USD"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "currency_sale",
+        "columnValue": "USD"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "currency_regularprice",
+        "columnValue": "USD"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "length_unit",
+        "columnValue": "IN"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "width_unit",
+        "columnValue": "IN"
+      }
+    },
+    {
+      "addColumn": {
+        "newColumnHeader": "height_unit",
+        "columnValue": "IN"
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "wc_richTextShortDescription",
+      "header": "short_description",
+      "subfieldPath": []
+    },
+    {
+      "field": "wc_featured",
+      "header": "featured",
+      "subfieldPath": []
+    },
+    {
+      "field": "shippingWidth",
+      "header": "dimensions.width",
+      "subfieldPath": [
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "price",
+      "header": "currency_price",
+      "subfieldPath": [
+        {
+          "name": "currencyCode"
+        }
+      ]
+    },
+    {
+      "field": "richTextDescription",
+      "header": "description",
+      "subfieldPath": []
+    },
+    {
+      "field": "shippingLength",
+      "header": "length_unit",
+      "subfieldPath": [
+        {
+          "name": "unit"
+        }
+      ]
+    },
+    {
+      "field": "wc_regularPrice",
+      "header": "regular_price",
+      "subfieldPath": [
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "price",
+      "header": "price",
+      "subfieldPath": [
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "entityId",
+      "header": "id",
+      "subfieldPath": []
+    },
+    {
+      "field": "wc_regularPrice",
+      "header": "currency_regularprice",
+      "subfieldPath": [
+        {
+          "name": "currencyCode"
+        }
+      ]
+    },
+    {
+      "field": "sku",
+      "header": "sku",
+      "subfieldPath": []
+    },
+    {
+      "field": "sales",
+      "header": "date_on_sale_from",
+      "subfieldPath": [
+        {
+          "name": "saleStartDate"
+        }
+      ]
+    },
+    {
+      "field": "wc_saleStatus",
+      "header": "on_sale",
+      "subfieldPath": []
+    },
+    {
+      "field": "photoGallery",
+      "header": "images",
+      "subfieldPath": [
+        {
+          "name": "image"
+        },
+        {
+          "name": "url"
+        }
+      ]
+    },
+    {
+      "field": "shippingHeight",
+      "header": "height_unit",
+      "subfieldPath": [
+        {
+          "name": "unit"
+        }
+      ]
+    },
+    {
+      "field": "availabilityDate",
+      "header": "date_created",
+      "subfieldPath": []
+    },
+    {
+      "field": "shippingHeight",
+      "header": "dimensions.height",
+      "subfieldPath": [
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "sales",
+      "header": "currency_sale",
+      "subfieldPath": [
+        {
+          "name": "salePrice"
+        },
+        {
+          "name": "currencyCode"
+        }
+      ]
+    },
+    {
+      "field": "wc_averageRating",
+      "header": "average_rating",
+      "subfieldPath": []
+    },
+    {
+      "field": "sales",
+      "header": "sale_price",
+      "subfieldPath": [
+        {
+          "name": "salePrice"
+        },
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "wc_ratingCount",
+      "header": "rating_count",
+      "subfieldPath": []
+    },
+    {
+      "field": "sales",
+      "header": "date_on_sale_to",
+      "subfieldPath": [
+        {
+          "name": "saleEndDate"
+        }
+      ]
+    },
+    {
+      "field": "shippingLength",
+      "header": "dimensions.length",
+      "subfieldPath": [
+        {
+          "name": "value"
+        }
+      ]
+    },
+    {
+      "field": "productHighlights",
+      "header": "tags[].name",
+      "subfieldPath": []
+    },
+    {
+      "field": "parentProduct",
+      "header": "parent_id",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "name",
+      "subfieldPath": []
+    },
+    {
+      "field": "wc_relatedProduct",
+      "header": "related_ids",
+      "subfieldPath": []
+    },
+    {
+      "field": "shippingWidth",
+      "header": "width_unit",
+      "subfieldPath": [
+        {
+          "name": "unit"
+        }
+      ]
+    },
+    {
+      "field": "landingPageUrl",
+      "header": "permalink",
+      "subfieldPath": []
+    },
+    {
+      "field": "wc_productCategory",
+      "header": "categories[].name",
+      "subfieldPath": []
+    }
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "Pacific/Easter",
+      "startDate": "2022-08-23",
+      "startTime": "23:00",
+      "frequencyType": "DAILY"
+    },
+    "runMode": "COMPREHENSIVE"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "wc_saleStatus",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "Use this field to indicate if an item is on sale",
+  "displayName": "Sale Status",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "stringType": {
+      "stereotype": "SIMPLE"
+    }
+  },
+  "typeId": "string"
+}

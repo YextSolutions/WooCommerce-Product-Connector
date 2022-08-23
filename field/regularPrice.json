@@ -1,0 +1,8 @@
+{
+  "$id": "wc_regularPrice",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Regular Price",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "typeId": "price"
+}
