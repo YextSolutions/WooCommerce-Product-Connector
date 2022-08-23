@@ -4,8 +4,7 @@
   "name": "Product-default",
   "entityType": "product",
   "fields": [
-    "c_productCategory",
-    "c_productTag"
+    "c_productCategory"
   ],
   "required": []
 }
