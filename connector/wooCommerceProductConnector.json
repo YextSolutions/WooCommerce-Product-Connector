@@ -5,32 +5,17 @@
   "entityType": "product",
   "source": {
     "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://danafesjian.wpcomstaging.com/wp-json/wc/v3/products",
-        "authentication": {
-          "basicAuthentication": {
-            "username": "${{km/connector.wooCommerceProductConnector.api_username}}",
-            "password": "${{km/connector.wooCommerceProductConnector.api_password}}"
+      "nativeSourceConfig": {
+        "source": "woocommerce",
+        "operation": "fetchContentPrivateApi",
+        "inputs": {
+          "wordpressFullDomain": "${{wordpressFullDomain}}",
+          "wooCommerceUsername": "${{wooCommerceUsername}}",
+          "wooCommercePassword": "${{wooCommercePassword}}"
           }
-        },
-        "paginationControl": {
-          "cursorPagination": {
-            "cursor": "link",
-            "cursorType": "FULL_URL",
-            "detectCursorInHeader": true
-          }
-        },
-        "headers": {},
-        "queryParams": {},
-        "dataFormat": "JSON"
+        }
       }
-    },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "[*]"
-    },
+    ,
     "selectors": [
       {
         "type": "JSON",
