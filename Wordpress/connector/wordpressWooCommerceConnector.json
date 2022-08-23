@@ -72,7 +72,7 @@
   ],
   "mappings": [
     {
-      "field": "c_productTag",
+      "field": "productHighlights",
       "header": "Product Tag",
       "subfieldPath": []
     },
