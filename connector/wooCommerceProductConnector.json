@@ -130,7 +130,7 @@
       {
         "type": "JSON",
         "header": "images",
-        "path": "images"
+        "path": "images[].src"
       },
       {
         "type": "JSON",
