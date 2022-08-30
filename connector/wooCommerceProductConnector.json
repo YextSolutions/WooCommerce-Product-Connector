@@ -136,6 +136,21 @@
         "type": "JSON",
         "header": "related_ids",
         "path": "related_ids"
+      },
+      {
+        "type": "JSON",
+        "header": "currency_price",
+        "path": "price_html"
+      },
+      {
+        "type": "JSON",
+        "header": "currency_sale",
+        "path": "price_html"
+      },
+      {
+        "type": "JSON",
+        "header": "currency_regularprice",
+        "path": "price_html"
       }
     ]
   },
@@ -155,38 +170,33 @@
     },
     {
       "addColumn": {
-        "newColumnHeader": "currency_price",
-        "columnValue": "USD"
-      }
-    },
-    {
-      "addColumn": {
-        "newColumnHeader": "currency_sale",
-        "columnValue": "USD"
-      }
-    },
-    {
-      "addColumn": {
-        "newColumnHeader": "currency_regularprice",
-        "columnValue": "USD"
-      }
-    },
-    {
-      "addColumn": {
         "newColumnHeader": "length_unit",
-        "columnValue": "IN"
+        "columnValue": "cm"
       }
     },
     {
       "addColumn": {
         "newColumnHeader": "width_unit",
-        "columnValue": "IN"
+        "columnValue": "cm"
       }
     },
     {
       "addColumn": {
         "newColumnHeader": "height_unit",
-        "columnValue": "IN"
+        "columnValue": "cm"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "currency_price",
+            "currency_sale",
+            "currency_regularprice"
+          ]
+        },
+        "plugin": "codeToCurrency",
+        "function": "extractHTMLcode"
       }
     }
   ],
