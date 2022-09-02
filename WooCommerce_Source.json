@@ -4,8 +4,8 @@
   "logo": "woocommerce_logo.svg",
   "operation": [
     {
-      "id": "fetchContentPrivateApi",
-      "name": "Fetch Content (Private API)",
+      "id": "fetchProducts",
+      "name": "Fetch Products",
       "productFeatureId" : [540],
       "configuration": {
         "apiConfig": {
@@ -55,7 +55,7 @@
         {
           "id": "wooCommerceUsername",
           "name": "Username",
-          "tooltip": "Use your Consumer Key from the WooCommerce REST API key generator.",
+          "tooltip": "Use your Consumer key from the WooCommerce REST API key generator.",
           "typeId": "type.string",
           "sensitive": false
         },
