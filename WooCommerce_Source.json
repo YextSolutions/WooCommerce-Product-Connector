@@ -6,6 +6,7 @@
     {
       "id": "fetchContentPrivateApi",
       "name": "Fetch Content (Private API)",
+      "productFeatureId" : [540],
       "configuration": {
         "apiConfig": {
           "method": "GET",
