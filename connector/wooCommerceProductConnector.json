@@ -10,8 +10,8 @@
         "operation": "fetchProducts",
         "inputs": {
           "wordpressFullDomain": "${{wordpressFullDomain}}",
-          "username": "${{wooCommerceUsername}}",
-          "password": "${{wooCommercePassword}}"
+          "wooCommerceUsername": "${{wooCommerceUsername}}",
+          "wooCommercePassword": "${{wooCommercePassword}}"
           }
         }
       }
