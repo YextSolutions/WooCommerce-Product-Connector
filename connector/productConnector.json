@@ -164,7 +164,7 @@
             "date_on_sale_to"
           ]
         },
-        "plugin": "wc_idTransform",
+        "plugin": "wc_dateTransform",
         "function": "formatDate"
       }
     },
