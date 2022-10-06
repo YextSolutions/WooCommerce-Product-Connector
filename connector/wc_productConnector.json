@@ -1,5 +1,5 @@
 {
-  "$id": "wc_ProductConnector",
+  "$id": "wc_productConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
   "displayName": "WooCommerce Product Connector",
   "entityType": "product",
