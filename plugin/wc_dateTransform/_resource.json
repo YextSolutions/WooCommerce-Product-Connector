@@ -1,4 +1,4 @@
 {
-  "$id": "wc_idTransform",
+  "$id": "wc_dateTransform",
   "$schema": "https://schema.yext.com/config/platform/plugin/v1"
 }
