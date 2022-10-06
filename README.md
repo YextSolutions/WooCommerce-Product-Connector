@@ -14,6 +14,8 @@ This app aligns with the existing Yext Product entity type and creates 8 custom 
 - Average Rating
 - Featured Product
 
+Note: Currency will default to most frequently used Currency Country Code based on currency symbol returned. USD will return for $ currency symbols. Users are able to override the currency value by using Transforms to 'Add New Column' and remap custom Currency Country Code.
+
 # Requirements
 
 To use this template you will need to have the following items accessible:
