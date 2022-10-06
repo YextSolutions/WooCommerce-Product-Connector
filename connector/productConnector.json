@@ -195,7 +195,7 @@
             "currency_regularprice"
           ]
         },
-        "plugin": "codeToCurrency",
+        "plugin": "wc_codeToCurrency",
         "function": "extractHTMLcode"
       }
     }
