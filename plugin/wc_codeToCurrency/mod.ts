@@ -1,5 +1,5 @@
-export function codeToCurrency(code: string) {
-    
+export function extractHTMLcode(code: string) {
+
     const searcher = `currencySymbol">`;
     const indexOf = code.indexOf(searcher);
 
@@ -7,11 +7,11 @@ export function codeToCurrency(code: string) {
     const indexOfSemi = stringWithoutBeginning.indexOf('</span>');
     const finalValue = stringWithoutBeginning.slice(0, (indexOfSemi - stringWithoutBeginning.length));
 
-    return currencyMapping(finalValue);
+    return codeToCurrency(finalValue);
 }
 
-//define function to convert HMTL code to Accepted Yext Currency Value (dictionary is comprehensive)
-function currencyMapping(code: string) {
+//define function to convert HMTL code to Accepted Yext Currency Value (dictionary is comprehensive )
+function codeToCurrency(code: string) {
     const dict: { [index: string]: string; } = {
         "&#36;": "USD",
         "&#163;": "GBP",
