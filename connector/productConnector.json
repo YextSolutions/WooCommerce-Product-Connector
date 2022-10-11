@@ -387,18 +387,8 @@
       "subfieldPath": []
     },
     {
-      "field": "parentProduct",
-      "header": "parent_id",
-      "subfieldPath": []
-    },
-    {
       "field": "name",
       "header": "name",
-      "subfieldPath": []
-    },
-    {
-      "field": "wc_relatedProduct",
-      "header": "related_ids",
       "subfieldPath": []
     },
     {
