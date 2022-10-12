@@ -151,6 +151,21 @@
         "type": "JSON",
         "header": "currency_regularprice",
         "path": "price_html"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.length.unit",
+        "path": "dimensions.length"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.width.unit",
+        "path": "dimensions.width"
+      },
+      {
+        "type": "JSON",
+        "header": "dimensions.height.unit",
+        "path": "dimensions.height"
       }
     ]
   },
@@ -169,24 +184,6 @@
       }
     },
     {
-      "addColumn": {
-        "newColumnHeader": "length_unit",
-        "columnValue": "cm"
-      }
-    },
-    {
-      "addColumn": {
-        "newColumnHeader": "width_unit",
-        "columnValue": "cm"
-      }
-    },
-    {
-      "addColumn": {
-        "newColumnHeader": "height_unit",
-        "columnValue": "cm"
-      }
-    },
-    {
       "function": {
         "inputHeaders": {
           "headers": [
@@ -197,6 +194,21 @@
         },
         "plugin": "wc_codeToCurrency",
         "function": "extractHTMLcode"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "dimension.length.unit",
+            "dimension.width.unit",
+            "dimension.height.unit"
+          ]
+        },
+        "valueToFind": {
+          "regex": "\\d+"
+        },
+        "replacement": "cm"
       }
     }
   ],
@@ -236,7 +248,7 @@
     },
     {
       "field": "shippingLength",
-      "header": "length_unit",
+      "header": "dimensions.length.unit",
       "subfieldPath": [
         {
           "name": "unit"
@@ -308,7 +320,7 @@
     },
     {
       "field": "shippingHeight",
-      "header": "height_unit",
+      "header": "dimensions.height.unit",
       "subfieldPath": [
         {
           "name": "unit"
@@ -393,7 +405,7 @@
     },
     {
       "field": "shippingWidth",
-      "header": "width_unit",
+      "header": "dimensions.width.unit",
       "subfieldPath": [
         {
           "name": "unit"
