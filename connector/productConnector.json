@@ -12,10 +12,9 @@
           "wordpressFullDomain": "${{wordpressFullDomain}}",
           "woocommerceUsername": "${{woocommerceUsername}}",
           "woocommercePassword": "${{woocommercePassword}}"
-          }
         }
       }
-    ,
+    },
     "selectors": [
       {
         "type": "JSON",
@@ -200,9 +199,9 @@
       "findAndReplace": {
         "inputHeaders": {
           "headers": [
-            "dimension.length.unit",
-            "dimension.width.unit",
-            "dimension.height.unit"
+            "dimensions.length.unit",
+            "dimensions.width.unit",
+            "dimensions.height.unit"
           ]
         },
         "valueToFind": {
@@ -245,15 +244,6 @@
       "field": "richTextDescription",
       "header": "description",
       "subfieldPath": []
-    },
-    {
-      "field": "shippingLength",
-      "header": "dimensions.length.unit",
-      "subfieldPath": [
-        {
-          "name": "unit"
-        }
-      ]
     },
     {
       "field": "wc_regularPrice",
@@ -315,15 +305,6 @@
         },
         {
           "name": "url"
-        }
-      ]
-    },
-    {
-      "field": "shippingHeight",
-      "header": "dimensions.height.unit",
-      "subfieldPath": [
-        {
-          "name": "unit"
         }
       ]
     },
@@ -404,6 +385,25 @@
       "subfieldPath": []
     },
     {
+      "field": "landingPageUrl",
+      "header": "permalink",
+      "subfieldPath": []
+    },
+    {
+      "field": "wc_productCategory",
+      "header": "categories[].name",
+      "subfieldPath": []
+    },
+    {
+      "field": "shippingLength",
+      "header": "dimensions.length.unit",
+      "subfieldPath": [
+        {
+          "name": "unit"
+        }
+      ]
+    },
+    {
       "field": "shippingWidth",
       "header": "dimensions.width.unit",
       "subfieldPath": [
@@ -413,14 +413,13 @@
       ]
     },
     {
-      "field": "landingPageUrl",
-      "header": "permalink",
-      "subfieldPath": []
-    },
-    {
-      "field": "wc_productCategory",
-      "header": "categories[].name",
-      "subfieldPath": []
+      "field": "shippingHeight",
+      "header": "dimensions.height.unit",
+      "subfieldPath": [
+        {
+          "name": "unit"
+        }
+      ]
     }
   ],
   "scheduleConfig": {
