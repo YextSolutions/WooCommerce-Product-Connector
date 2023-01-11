@@ -2,7 +2,7 @@
 
 Pull in your WooCommerce Products with Yext's new WooCommerce Product Connector! WooCommerce is a plug-in with Wordpress Site to help users seamlessly run store, from managing product inventory to capturing sales. With the Addition of the WooCommerce Product connector, you can pull in all of your product information into your Knowledge Graph to be used in the Yext Platform.
 
-The WooCommernce Product connector will pull in data about your product including, but not limited to: product SKU, pricing, inventory levels, shipping dimensions, related products, product category, etc. Note: The connector is configured to run comprehensively on a daily cadence.
+The WooCommerce Product connector will pull in data about your product including, but not limited to: product SKU, pricing, inventory levels, shipping dimensions, related products, product category, etc. Note: The connector is configured to run comprehensively on a daily cadence.
 
 This app aligns with the existing Yext Product entity type and creates 8 custom fields:
 
