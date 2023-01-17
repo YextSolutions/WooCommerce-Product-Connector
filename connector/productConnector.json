@@ -194,21 +194,6 @@
         "plugin": "wc_codeToCurrency",
         "function": "extractHTMLcode"
       }
-    },
-    {
-      "findAndReplace": {
-        "inputHeaders": {
-          "headers": [
-            "dimensions.length.unit",
-            "dimensions.width.unit",
-            "dimensions.height.unit"
-          ]
-        },
-        "valueToFind": {
-          "regex": "\\d+"
-        },
-        "replacement": "cm"
-      }
     }
   ],
   "mappings": [
@@ -221,15 +206,6 @@
       "field": "wc_featured",
       "header": "featured",
       "subfieldPath": []
-    },
-    {
-      "field": "shippingWidth",
-      "header": "dimensions.width",
-      "subfieldPath": [
-        {
-          "name": "value"
-        }
-      ]
     },
     {
       "field": "price",
@@ -314,15 +290,6 @@
       "subfieldPath": []
     },
     {
-      "field": "shippingHeight",
-      "header": "dimensions.height",
-      "subfieldPath": [
-        {
-          "name": "value"
-        }
-      ]
-    },
-    {
       "field": "sales",
       "header": "currency_sale",
       "subfieldPath": [
@@ -366,15 +333,6 @@
       ]
     },
     {
-      "field": "shippingLength",
-      "header": "dimensions.length",
-      "subfieldPath": [
-        {
-          "name": "value"
-        }
-      ]
-    },
-    {
       "field": "productHighlights",
       "header": "tags[].name",
       "subfieldPath": []
@@ -393,33 +351,6 @@
       "field": "wc_productCategory",
       "header": "categories[].name",
       "subfieldPath": []
-    },
-    {
-      "field": "shippingLength",
-      "header": "dimensions.length.unit",
-      "subfieldPath": [
-        {
-          "name": "unit"
-        }
-      ]
-    },
-    {
-      "field": "shippingWidth",
-      "header": "dimensions.width.unit",
-      "subfieldPath": [
-        {
-          "name": "unit"
-        }
-      ]
-    },
-    {
-      "field": "shippingHeight",
-      "header": "dimensions.height.unit",
-      "subfieldPath": [
-        {
-          "name": "unit"
-        }
-      ]
     }
   ],
   "scheduleConfig": {
